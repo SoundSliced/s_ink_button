@@ -5,7 +5,7 @@
   "packages": [
     {
       "name": "s_ink_button",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "dependencies": [
         "flutter",
         "flutter_animate",
