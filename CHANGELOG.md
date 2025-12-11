@@ -1,8 +1,8 @@
-## 1.0.1
 
-* Version 1.0.1
+## [1.0.1]
 
-# Changelog
+- updated README
+- updated Documentation and Dart files convention
 
 ## [1.0.0] - 2025-12-11
 
