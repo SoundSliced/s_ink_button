@@ -1,0 +1,27 @@
+name: s_ink_button
+description: "An ink button, works similarly to InkWell but with better performance, without needing to be wrapped by a Material widget. Features: splash effect, haptic feedback, and animations..."
+version: 1.0.0
+homepage: https://github.com/SoundSliced/s_ink_button
+repository: https://github.com/SoundSliced/s_ink_button
+issue_tracker: https://github.com/SoundSliced/s_ink_button/issues
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  soundsliced_dart_extensions: ^1.0.1
+  soundsliced_tween_animation_builder: ^1.2.0
+  flutter_animate: ^4.5.2
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
