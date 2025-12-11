@@ -1,15 +1,11 @@
 # s_ink_button
 
-Version: 1.0.0
 
 Lightweight and flexible ink splash button for Flutter that doesn't require being wrapped in a Material widget. Ideal for lightweight UI elements, with configurable appearance and built-in haptic feedback.
 
-![Example](https://github.com/SoundSliced/s_ink_button/blob/main/example/assets/example.gif)
+![Example](https://github.com/SoundSliced/s_ink_button/main/example/assets/example.gif)
 
-## Version & Features
-
-Version: 1.0.0
-
+ 
 ## Features
 
 - Customizable splash color, radius, and animations
@@ -27,7 +23,7 @@ From pub.dev (recommended after publishing):
 
 ```yaml
 dependencies:
-  s_ink_button: ^1.0.0
+  s_ink_button: ^1.0.2
 ```
 
 Or from GitHub:
@@ -90,7 +86,7 @@ The example application is under the `example/` directory, showing both basic an
 
 If you use the example's screenshot (example/assets/example.gif) in README, make sure to keep the GitHub path like:
 
-`https://github.com/SoundSliced/s_ink_button/blob/main/example/assets/example.gif`
+`https://raw.githubusercontent.com/SoundSliced/s_ink_button/main/example/assets/example.gif`
   
 Also view the complete example app in the repository: https://github.com/SoundSliced/s_ink_button/tree/main/example
 
