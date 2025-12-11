@@ -1,0 +1,23 @@
+name: s_ink_button_example
+
+description: "Example app for s_ink_button package"
+
+publish_to: none
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  s_ink_button:
+    path: ../
+
+  # Add any dependencies used in examples
+  flutter_hooks: ^0.18.5
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/example.gif

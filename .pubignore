@@ -28,4 +28,3 @@ Thumbs.db
 test/.test_cache/
 .test_cache/
 *.sh
-*.sh

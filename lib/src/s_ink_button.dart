@@ -48,6 +48,7 @@ class _SInkButtonState extends State<SInkButton> {
   bool _isHovered = false;
   bool _isPressed = false;
   Offset? _tapPosition;
+  Offset? _localTapPosition;
   int _splashKey = 0; // Increment to trigger new animation
   bool _isAnimationReversing = false;
 
@@ -71,14 +72,16 @@ class _SInkButtonState extends State<SInkButton> {
   void _handleTapDown(TapDownDetails details) {
     if (!widget.isActive) return;
     // log("_handleTapDown called at: ${details.globalPosition}");
-    _startSplashAnimation(details.globalPosition);
+    _startSplashAnimation(details.globalPosition, details.localPosition);
   }
 
-  void _startSplashAnimation(Offset globalPosition, {double startValue = 0.0}) {
+  void _startSplashAnimation(Offset globalPosition, Offset localPosition,
+      {double startValue = 0.0}) {
     // Only start animation if not already started to prevent conflicts
     if (_tapPosition == null || !_isPressed) {
       setState(() {
         _tapPosition = globalPosition;
+        _localTapPosition = localPosition;
         _isPressed = true;
         _isAnimationReversing = false;
         _splashKey++; // Trigger new animation
@@ -89,6 +92,7 @@ class _SInkButtonState extends State<SInkButton> {
         // Only update if significantly different
         setState(() {
           _tapPosition = globalPosition;
+          _localTapPosition = localPosition;
         });
       }
     }
@@ -226,7 +230,8 @@ class _SInkButtonState extends State<SInkButton> {
                 // log("_onDoubleTapDown called at: ${details.globalPosition}");
                 // Use same animation behavior as regular tap for consistency
                 if (_tapPosition == null || !_isPressed) {
-                  _startSplashAnimation(details.globalPosition,
+                  _startSplashAnimation(
+                      details.globalPosition, details.localPosition,
                       startValue: 0.0);
                 }
               }
@@ -313,7 +318,15 @@ class _SInkButtonState extends State<SInkButton> {
                             ),
 
                           // Splash overlay
-                          if (_tapPosition != null) _buildSplashOverlay(),
+                          if (_tapPosition != null)
+                            Positioned.fill(
+                              child: LayoutBuilder(
+                                builder: (context, constraints) {
+                                  return _buildSplashOverlay(
+                                      constraints.biggest);
+                                },
+                              ),
+                            ),
                         ],
                       ),
                     ),
@@ -327,67 +340,56 @@ class _SInkButtonState extends State<SInkButton> {
     );
   }
 
-  Widget _buildSplashOverlay() {
-    return Positioned.fill(
-      child: Builder(builder: (context) {
-        final renderBox = context.findRenderObject() as RenderBox?;
-        if (renderBox == null) return const SizedBox.shrink();
+  Widget _buildSplashOverlay(Size size) {
+    if (_localTapPosition == null) return const SizedBox.shrink();
 
-        final size = renderBox.size;
-        if (size.width <= 0 || size.height <= 0) return const SizedBox.shrink();
+    if (!_isTapPositionValid(_localTapPosition!, size)) {
+      return const SizedBox.shrink();
+    }
 
-        final localTapPosition = renderBox.globalToLocal(_tapPosition!);
+    return IgnorePointer(
+      child: STweenAnimationBuilder<double>(
+        key: ValueKey('splash_$_splashKey$_isAnimationReversing'),
+        tween:
+            Tween<double>(begin: 0.0, end: _isAnimationReversing ? 0.0 : 1.0),
+        duration: const Duration(milliseconds: 800),
+        curve: _isAnimationReversing ? Curves.easeInCubic : Curves.easeOutCubic,
+        onEnd: () {
+          if (_isAnimationReversing && mounted) {
+            setState(() {
+              _tapPosition = null;
+              _localTapPosition = null;
+              _isPressed = false;
+              _isAnimationReversing = false;
+            });
+          } else if (!_isPressed && mounted) {
+            // Auto-reverse when animation completes and not pressed
+            setState(() {
+              _isAnimationReversing = true;
+            });
+          }
+        },
+        builder: (context, animValue, child) {
+          final maxRadius = _calculateMaxRadius(size, _localTapPosition!);
+          // Opacity: fade in during first 30%, stay at 1.0, fade out on reverse
+          final currentOpacity = _isAnimationReversing
+              ? animValue
+              : (animValue < 0.3 ? 0.3 + (animValue / 0.3 * 0.7) : 1.0);
 
-        if (!_isTapPositionValid(localTapPosition, size)) {
-          return const SizedBox.shrink();
-        }
+          // Calculate radius with configurable minimum starting value for better visual effect
+          final minRadius = widget.initialSplashRadius;
+          final animatedRadius =
+              minRadius + (animValue * (maxRadius - minRadius));
 
-        return IgnorePointer(
-          child: STweenAnimationBuilder<double>(
-            key: ValueKey('splash_$_splashKey$_isAnimationReversing'),
-            tween: Tween<double>(
-                begin: 0.0, end: _isAnimationReversing ? 0.0 : 1.0),
-            duration: const Duration(milliseconds: 800),
-            curve: _isAnimationReversing
-                ? Curves.easeInCubic
-                : Curves.easeOutCubic,
-            onEnd: () {
-              if (_isAnimationReversing && mounted) {
-                setState(() {
-                  _tapPosition = null;
-                  _isPressed = false;
-                  _isAnimationReversing = false;
-                });
-              } else if (!_isPressed && mounted) {
-                // Auto-reverse when animation completes and not pressed
-                setState(() {
-                  _isAnimationReversing = true;
-                });
-              }
-            },
-            builder: (context, animValue, child) {
-              final maxRadius = _calculateMaxRadius(size, localTapPosition);
-              // Opacity: fade in during first 30%, stay at 1.0, fade out on reverse
-              final currentOpacity = _isAnimationReversing
-                  ? animValue
-                  : (animValue < 0.3 ? 0.3 + (animValue / 0.3 * 0.7) : 1.0);
-
-              // Calculate radius with configurable minimum starting value for better visual effect
-              final minRadius = widget.initialSplashRadius;
-              final animatedRadius =
-                  minRadius + (animValue * (maxRadius - minRadius));
-
-              return CustomPaint(
-                painter: _SplashPainter(
-                  center: localTapPosition,
-                  radius: animatedRadius,
-                  color: _splashColor.withValues(alpha: 0.12 * currentOpacity),
-                ),
-              );
-            },
-          ),
-        );
-      }),
+          return CustomPaint(
+            painter: _SplashPainter(
+              center: _localTapPosition!,
+              radius: animatedRadius,
+              color: _splashColor.withValues(alpha: 0.12 * currentOpacity),
+            ),
+          );
+        },
+      ),
     );
   }
 }

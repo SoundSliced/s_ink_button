@@ -4,7 +4,9 @@ version: 1.0.0
 homepage: https://github.com/SoundSliced/s_ink_button
 repository: https://github.com/SoundSliced/s_ink_button
 issue_tracker: https://github.com/SoundSliced/s_ink_button/issues
-publish_to: none
+# If you want to publish to pub.dev, remove the publish_to entry or leave it empty
+# publish_to: none
+license: MIT
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
