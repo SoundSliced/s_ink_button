@@ -1,3 +1,7 @@
+## [1.0.4]
+
+- updated README
+
 ## [1.0.3]
 
 - updated README
