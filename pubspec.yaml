@@ -1,6 +1,6 @@
 name: s_ink_button
 description: "InkWell alternative with better performance, without needing to be wrapped by a Material widget. Features: splash effect, haptic feedback, onTap, onLongPress, onDoubleTap handlers, circle button support."
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/SoundSliced/s_ink_button
 repository: https://github.com/SoundSliced/s_ink_button
 issue_tracker: https://github.com/SoundSliced/s_ink_button/issues
