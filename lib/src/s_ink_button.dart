@@ -7,21 +7,57 @@ import 'package:soundsliced_tween_animation_builder/soundsliced_tween_animation_
 
 import 'haptic_feedback_type.dart';
 
+/// A customizable button widget with ink splash animation and haptic feedback.
+///
+/// [SInkButton] provides a Material Design-inspired ink splash effect that
+/// originates from the exact tap position, creating a more natural and
+/// responsive feel compared to standard buttons.
+///
+/// ## Features
+/// - **Ink splash animation**: Circular splash effect expanding from tap position
+/// - **Haptic feedback**: Optional tactile feedback on tap (iOS/Android)
+/// - **Hover effects**: Visual feedback on mouse hover (desktop/web)
+/// - **Scale animation**: Subtle press-down effect
+/// - **Multiple gestures**: Support for tap, double-tap, and long-press
+/// - **Customizable appearance**: Configurable colors, border radius, and more
+///
+/// ## Basic Example
+/// ```dart
+/// SInkButton(
+///   onTap: (position) {
+///     print('Button tapped at $position');
+///   },
+///   child: Container(
+///     padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+///     decoration: BoxDecoration(
+///       color: Colors.blue,
+///       borderRadius: BorderRadius.circular(8),
+///     ),
+///     child: Text('Press Me', style: TextStyle(color: Colors.white)),
+///   ),
+/// )
+/// ```
+///
+/// ## Advanced Example with Custom Settings
+/// ```dart
+/// SInkButton(
+///   color: Colors.purple,
+///   scaleFactor: 0.95,
+///   hoverAndSplashBorderRadius: BorderRadius.circular(16),
+///   hapticFeedbackType: HapticFeedbackType.mediumImpact,
+///   onTap: (position) => handleTap(),
+///   onLongPressStart: (details) => showMenu(),
+///   tooltipMessage: 'Long press for options',
+///   child: MyCustomButton(),
+/// )
+/// ```
+///
+/// See also:
+/// - [HapticFeedbackType] for available haptic feedback options
 class SInkButton extends StatefulWidget {
-  final Widget child;
-  final Color? color; // splash and hover color
-  final String? tooltipMessage;
-
-  final BorderRadius? hoverAndSplashBorderRadius;
-  final double scaleFactor;
-  final double initialSplashRadius; // Initial radius for splash animation
-  final bool isActive, enableHapticFeedback, isCircleButton;
-  final HapticFeedbackType? hapticFeedbackType;
-  final void Function(Offset)? onTap;
-  final void Function(Offset)? onDoubleTap;
-  final void Function(LongPressStartDetails)? onLongPressStart;
-  final void Function(LongPressEndDetails)? onLongPressEnd;
-
+  /// Creates an [SInkButton] with the given child widget.
+  ///
+  /// The [child] parameter is required and represents the content of the button.
   const SInkButton({
     super.key,
     required this.child,
@@ -39,6 +75,86 @@ class SInkButton extends StatefulWidget {
     this.isCircleButton = false,
     this.tooltipMessage,
   });
+
+  /// The widget displayed inside the button.
+  ///
+  /// This is typically a [Container], [Text], [Icon], or any other widget
+  /// that represents the button's content.
+  final Widget child;
+
+  /// The color used for the splash and hover effects.
+  ///
+  /// If null, defaults to [Colors.purple].
+  ///
+  /// The splash effect uses this color with reduced opacity (12%),
+  /// and the hover effect uses a darkened version with 4% opacity.
+  final Color? color;
+
+  /// Optional tooltip message displayed when hovering over the button.
+  ///
+  /// When [isActive] is false, the tooltip displays "Button is disabled".
+  final String? tooltipMessage;
+
+  /// The border radius applied to the hover and splash effects.
+  ///
+  /// If null, defaults to `BorderRadius.circular(8)` for rectangular buttons
+  /// or `BorderRadius.circular(40)` for circle buttons.
+  final BorderRadius? hoverAndSplashBorderRadius;
+
+  /// The scale factor applied when the button is pressed.
+  ///
+  /// Values less than 1.0 shrink the button on press.
+  /// Defaults to 0.985 for a subtle press effect.
+  ///
+  /// Set to 1.0 to disable the scale animation.
+  final double scaleFactor;
+
+  /// The initial radius of the splash animation.
+  ///
+  /// Controls how large the splash circle is at the start of the animation.
+  /// Defaults to 0.5 pixels.
+  final double initialSplashRadius;
+
+  /// Whether the button responds to user interactions.
+  ///
+  /// When false, the button ignores all gestures and displays
+  /// a "Button is disabled" tooltip.
+  final bool isActive;
+
+  /// Whether to trigger haptic feedback on tap.
+  ///
+  /// Defaults to true. Set to false to disable haptic feedback.
+  final bool enableHapticFeedback;
+
+  /// Whether the button has a circular shape.
+  ///
+  /// When true, uses circular clipping for the splash effect.
+  /// Defaults to false.
+  final bool isCircleButton;
+
+  /// The type of haptic feedback to trigger on tap.
+  ///
+  /// Defaults to [HapticFeedbackType.lightImpact].
+  /// Set to null to disable haptic feedback regardless of [enableHapticFeedback].
+  final HapticFeedbackType? hapticFeedbackType;
+
+  /// Callback invoked when the button is tapped.
+  ///
+  /// The [Offset] parameter contains the global position of the tap.
+  final void Function(Offset)? onTap;
+
+  /// Callback invoked when the button is double-tapped.
+  ///
+  /// The [Offset] parameter contains the global position of the tap.
+  final void Function(Offset)? onDoubleTap;
+
+  /// Callback invoked when a long press gesture starts.
+  ///
+  /// Useful for showing context menus or additional options.
+  final void Function(LongPressStartDetails)? onLongPressStart;
+
+  /// Callback invoked when a long press gesture ends.
+  final void Function(LongPressEndDetails)? onLongPressEnd;
 
   @override
   State<SInkButton> createState() => _SInkButtonState();
