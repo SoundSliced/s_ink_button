@@ -290,14 +290,29 @@ class _SInkButtonState extends State<SInkButton> {
   void _handleTapCancel() {
     if (!widget.isActive) return;
 
+    // If long press is configured, the cancel might be because long press won.
+    // We delay the cancel handling to allow onLongPressStart to fire first.
+    final hasLongPress =
+        widget.onLongPressStart != null || widget.onLongPressEnd != null;
+
+    if (hasLongPress) {
+      Future.microtask(() {
+        if (mounted && !_isLongPressing) {
+          _performCancel();
+        }
+      });
+    } else {
+      _performCancel();
+    }
+  }
+
+  void _performCancel() {
     // Don't cancel the splash/scale animation if we're in a long press
     // This prevents SnackBars or other overlays from interrupting the long press visual feedback
     if (_isLongPressing) return;
 
-    _isPressed = false;
-
-    // Trigger reverse animation
     setState(() {
+      _isPressed = false;
       _isAnimationReversing = true;
     });
   }

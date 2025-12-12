@@ -1,3 +1,7 @@
+## [1.0.6]
+
+- Fixed visual bug where the button would momentarily pop back to its original scale when a long press gesture was detected. The button now correctly maintains its pressed state throughout the gesture transition.
+
 ## [1.0.5]
 
 - Fixed issue: Handling gesture cancellations correctly when overlays like SnackBars appear, ensuring the long-press state explicitly overrides the cancellation and resets the animation state: in other words, the button now correctly maintains its pressed state (splash and scale) when a SnackBar is shown during a long press. 
