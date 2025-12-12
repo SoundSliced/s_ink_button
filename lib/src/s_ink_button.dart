@@ -163,6 +163,7 @@ class SInkButton extends StatefulWidget {
 class _SInkButtonState extends State<SInkButton> {
   bool _isHovered = false;
   bool _isPressed = false;
+  bool _isLongPressing = false; // Track long press state separately
   Offset? _tapPosition;
   Offset? _localTapPosition;
   int _splashKey = 0; // Increment to trigger new animation
@@ -289,6 +290,10 @@ class _SInkButtonState extends State<SInkButton> {
   void _handleTapCancel() {
     if (!widget.isActive) return;
 
+    // Don't cancel the splash/scale animation if we're in a long press
+    // This prevents SnackBars or other overlays from interrupting the long press visual feedback
+    if (_isLongPressing) return;
+
     _isPressed = false;
 
     // Trigger reverse animation
@@ -361,25 +366,39 @@ class _SInkButtonState extends State<SInkButton> {
                 }
               }
             : null,
-        onLongPressStart: widget.isActive && widget.onLongPressStart != null
+        onLongPressStart: widget.isActive &&
+                (widget.onLongPressStart != null ||
+                    widget.onLongPressEnd != null)
             ? (details) {
                 if (!widget.isActive) return;
+                // Mark that we're in a long press state to prevent tap cancel from interrupting
+                setState(() {
+                  _isLongPressing = true;
+                  _isPressed = true; // Keep pressed state during long press
+                  _isAnimationReversing =
+                      false; // Ensure splash doesn't fade out if tap was cancelled
+                });
                 // Don't restart animation if it's already running from onTapDown
                 // _startSplashAnimation(details.globalPosition, startValue: 0.02);
-                widget.onLongPressStart!(details);
+                widget.onLongPressStart?.call(details);
                 if (widget.enableHapticFeedback) {
                   _triggerHapticFeedback(widget.hapticFeedbackType);
                 }
               }
             : null,
-        onLongPressEnd: widget.isActive && widget.onLongPressEnd != null
+        onLongPressEnd: widget.isActive &&
+                (widget.onLongPressStart != null ||
+                    widget.onLongPressEnd != null)
             ? (details) {
                 if (!widget.isActive) return;
+                // Long press ended, reset the flag
+                _isLongPressing = false;
+                _isPressed = false;
                 // Trigger reverse animation
                 setState(() {
                   _isAnimationReversing = true;
                 });
-                widget.onLongPressEnd!(details);
+                widget.onLongPressEnd?.call(details);
                 if (widget.enableHapticFeedback) {
                   _triggerHapticFeedback(widget.hapticFeedbackType);
                 }
@@ -478,8 +497,8 @@ class _SInkButtonState extends State<SInkButton> {
               _isPressed = false;
               _isAnimationReversing = false;
             });
-          } else if (!_isPressed && mounted) {
-            // Auto-reverse when animation completes and not pressed
+          } else if (!_isPressed && !_isLongPressing && mounted) {
+            // Auto-reverse when animation completes and not pressed and not in long press
             setState(() {
               _isAnimationReversing = true;
             });
