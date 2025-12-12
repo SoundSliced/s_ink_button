@@ -290,9 +290,14 @@ class _SInkButtonState extends State<SInkButton> {
   void _handleLongPressStart(LongPressStartDetails details) {
     if (!widget.isActive) return;
 
+    // CRITICAL: Set _isLongPressing synchronously BEFORE setState
+    // This ensures that when _handleTapCancel's microtask checks this flag,
+    // it's already true. If we set it inside setState, the microtask may
+    // run before the setState callback completes.
+    _isLongPressing = true;
+    _isPressed = true;
+
     setState(() {
-      _isLongPressing = true;
-      _isPressed = true;
       _isAnimationReversing = false;
     });
 
