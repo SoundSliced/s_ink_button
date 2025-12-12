@@ -1,3 +1,7 @@
+## [1.0.7]
+
+- Fixed bug: `onLongPressStart` and `onLongPressEnd` callbacks were overriding internal state management, causing the button to lose its pressed state (scale/splash) when these callbacks were provided. Now, internal logic always runs first to ensure consistent visual feedback.
+
 ## [1.0.6]
 
 - Fixed visual bug where the button would momentarily pop back to its original scale when a long press gesture was detected. The button now correctly maintains its pressed state throughout the gesture transition.
