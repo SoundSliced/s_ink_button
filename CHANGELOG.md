@@ -1,3 +1,8 @@
+## [1.1.0]
+
+- HitTestBehavior? hitTestBehavior parameter added to determine whether the button responds to touch events and how it interacts with other widgets in the hit test hierarchy.
+
+
 ## [1.0.8]
 
 - Fixed critical bug: When `onLongPressStart` callback was provided (non-null), the button would immediately pop back to its original scale when long press was detected. This was caused by a race condition in `GestureDetector`'s gesture arena resolution where `onTapCancel` would fire before the long press state was properly set. The fix ensures `_isLongPressing` and `_isPressed` are set synchronously before `setState` to prevent the cancellation from resetting the visual state.

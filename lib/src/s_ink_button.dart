@@ -74,6 +74,7 @@ class SInkButton extends StatefulWidget {
     this.onLongPressEnd,
     this.isCircleButton = false,
     this.tooltipMessage,
+    this.hitTestBehavior,
   });
 
   /// The widget displayed inside the button.
@@ -155,6 +156,13 @@ class SInkButton extends StatefulWidget {
 
   /// Callback invoked when a long press gesture ends.
   final void Function(LongPressEndDetails)? onLongPressEnd;
+
+  /// The behavior of the button when it comes to hit testing.
+  ///
+  /// This determines whether the button responds to touch events
+  /// and how it interacts with other widgets in the hit test
+  /// hierarchy.
+  final HitTestBehavior? hitTestBehavior;
 
   @override
   State<SInkButton> createState() => _SInkButtonState();
@@ -389,7 +397,7 @@ class _SInkButtonState extends State<SInkButton> {
       onExit:
           widget.isActive ? (_) => setState(() => _isHovered = false) : null,
       child: GestureDetector(
-        behavior: HitTestBehavior.translucent,
+        behavior: widget.hitTestBehavior ?? HitTestBehavior.translucent,
         onTapDown: widget.isActive ? _handleTapDown : null,
         onDoubleTapDown: widget.isActive && widget.onDoubleTap != null
             ? (details) {
