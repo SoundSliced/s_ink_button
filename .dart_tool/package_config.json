@@ -215,6 +215,6 @@
   "generator": "pub",
   "generatorVersion": "3.11.0-200.1.beta",
   "flutterRoot": "file:///Users/christophechanteur/Development/flutter",
-  "flutterVersion": "3.40.0-0.1.pre",
+  "flutterVersion": "3.40.0-0.2.pre",
   "pubCache": "file:///Users/christophechanteur/.pub-cache"
 }

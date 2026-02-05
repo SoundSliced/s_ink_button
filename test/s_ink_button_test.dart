@@ -72,9 +72,9 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
         body: SInkButton(
-          child: const SizedBox(width: 48, height: 48),
           isActive: false,
           onTap: (_) => tapped = true,
+          child: const SizedBox(width: 48, height: 48),
         ),
       ),
     ));

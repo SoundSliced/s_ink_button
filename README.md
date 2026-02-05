@@ -72,7 +72,7 @@ SInkButton(
   scaleFactor: 0.975,
   initialSplashRadius: 6,
   hapticFeedbackType: HapticFeedbackType.mediumImpact,
-  color: Colors.red.withOpacity(0.9),
+  color: Colors.red.withValues(alpha: 0.9),
   enableHapticFeedback: true,
   onDoubleTap: (pos) { /*...*/ },
   onLongPressStart: (d) { /*...*/ },
