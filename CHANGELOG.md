@@ -1,3 +1,9 @@
+## 2.0.0
+- package no longer holds the source code for it, but exports/exposes the `s_packages` package instead, which will hold this package's latest source code.
+- The only future changes to this package will be made via `s_packages` package dependency upgrades, in order to bring the new fixes or changes to this package
+- dependent on `s_packages`: ^1.1.2
+
+
 ## [1.1.0]
 
 - HitTestBehavior? hitTestBehavior parameter added to determine whether the button responds to touch events and how it interacts with other widgets in the hit test hierarchy.

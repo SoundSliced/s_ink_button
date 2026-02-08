@@ -1,6 +1,6 @@
 name: s_ink_button
 description: "Built from scratch InkWell alternative, designed for performance, without needing to be wrapped by a Material widget."
-version: 1.1.0
+version: 2.0.0
 homepage: https://github.com/SoundSliced/s_ink_button
 repository: https://github.com/SoundSliced/s_ink_button
 issue_tracker: https://github.com/SoundSliced/s_ink_button/issues
@@ -15,9 +15,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  soundsliced_dart_extensions: ^1.0.1
-  soundsliced_tween_animation_builder: ^1.2.0
-  flutter_animate: ^4.5.2
+  s_packages: ^1.1.2
 
 
 
@@ -27,3 +25,4 @@ dev_dependencies:
   flutter_lints: ^6.0.0
 
 flutter:
+  uses-material-design: true 
