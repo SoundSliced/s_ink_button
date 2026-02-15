@@ -1,8 +1,11 @@
+
+
 ## 2.0.0
 - package no longer holds the source code for it, but exports/exposes the `s_packages` package instead, which will hold this package's latest source code.
 - The only future changes to this package will be made via `s_packages` package dependency upgrades, in order to bring the new fixes or changes to this package
-- dependent on `s_packages`: ^1.1.2
-
+- Added `onHover` and `onFocusChange` callbacks
+- Added `hoverColor` for custom hover state color
+- Added `splashDuration` for custom splash animation timing
 
 ## [1.1.0]
 

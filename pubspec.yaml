@@ -15,7 +15,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  s_packages: ^1.1.2
+  s_packages: ^1.4.1
 
 
 

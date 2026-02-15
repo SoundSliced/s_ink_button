@@ -90,6 +90,13 @@ If you use the example's screenshot (example/assets/example.gif) in README, make
   
 Also view the complete example app in the repository: https://github.com/SoundSliced/s_ink_button/tree/main/example
 
+## New in v2.1.0
+
+- `onHover` callback for hover state changes
+- `onFocusChange` callback for focus state changes  
+- `hoverColor` for custom hover state color
+- `splashDuration` for custom splash animation timing
+
 ## Tests
 
 Basic widget tests are included in the `test/` folder. They verify callbacks for tap, double tap and long-press.
