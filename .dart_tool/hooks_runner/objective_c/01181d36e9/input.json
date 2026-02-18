@@ -1,0 +1,29 @@
+{
+  "assets": {},
+  "config": {
+    "build_asset_types": [
+      "code_assets/code"
+    ],
+    "extensions": {
+      "code_assets": {
+        "c_compiler": {
+          "ar": "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar",
+          "cc": "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang",
+          "ld": "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld"
+        },
+        "link_mode_preference": "dynamic",
+        "macos": {
+          "target_version": 13
+        },
+        "target_architecture": "arm64",
+        "target_os": "macos"
+      }
+    },
+    "linking_enabled": false
+  },
+  "out_dir_shared": "/Users/christophechanteur/Development/Flutter_projects/s_packages - with individual git/s_ink_button/.dart_tool/hooks_runner/shared/objective_c/build/",
+  "out_file": "/Users/christophechanteur/Development/Flutter_projects/s_packages - with individual git/s_ink_button/.dart_tool/hooks_runner/objective_c/01181d36e9/output.json",
+  "package_name": "objective_c",
+  "package_root": "/Users/christophechanteur/.pub-cache/hosted/pub.dev/objective_c-9.3.0/",
+  "user_defines": {}
+}
