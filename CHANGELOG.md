@@ -1,4 +1,5 @@
-
+## [3.0.0]
+- `s_packages` dependency upgraded to ^3.0.0
 
 ## 2.0.0
 - package no longer holds the source code for it, but exports/exposes the `s_packages` package instead, which will hold this package's latest source code.

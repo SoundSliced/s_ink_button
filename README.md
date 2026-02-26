@@ -23,7 +23,7 @@ From pub.dev (recommended after publishing):
 
 ```yaml
 dependencies:
-  s_ink_button: ^2.0.0
+  s_ink_button: ^3.0.0
 ```
 
 Or from GitHub:
