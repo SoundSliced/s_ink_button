@@ -117,13 +117,13 @@
     },
     {
       "name": "dio",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/dio-5.9.1",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/dio-5.9.2",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "dio_web_adapter",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/dio_web_adapter-2.1.1",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/dio_web_adapter-2.1.2",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -141,7 +141,7 @@
     },
     {
       "name": "ffi",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/ffi-2.1.5",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/ffi-2.2.0",
       "packageUri": "lib/",
       "languageVersion": "3.7"
     },
@@ -291,7 +291,7 @@
     },
     {
       "name": "lints",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/lints-6.0.0",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/lints-6.1.0",
       "packageUri": "lib/",
       "languageVersion": "3.8"
     },
@@ -429,7 +429,7 @@
     },
     {
       "name": "petitparser",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/petitparser-7.0.1",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/petitparser-7.0.2",
       "packageUri": "lib/",
       "languageVersion": "3.8"
     },
@@ -489,7 +489,7 @@
     },
     {
       "name": "s_packages",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/s_packages-3.0.0",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/s_packages-3.1.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -501,7 +501,7 @@
     },
     {
       "name": "shared_preferences_android",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.20",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.21",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
@@ -567,7 +567,7 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/source_span-1.10.1",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/source_span-1.10.2",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     },
@@ -639,7 +639,7 @@
     },
     {
       "name": "vector_graphics_compiler",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/vector_graphics_compiler-1.1.20",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/vector_graphics_compiler-1.2.0",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
@@ -669,7 +669,7 @@
     },
     {
       "name": "webview_flutter_android",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/webview_flutter_android-4.10.11",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/webview_flutter_android-4.10.13",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
@@ -680,8 +680,14 @@
       "languageVersion": "3.6"
     },
     {
+      "name": "webview_flutter_web",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/webview_flutter_web-0.2.3+4",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "webview_flutter_wkwebview",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.23.6",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.23.8",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },

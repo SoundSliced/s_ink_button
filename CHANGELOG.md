@@ -1,3 +1,11 @@
+
+## [3.1.0]
+- `s_packages` dependency upgraded to ^3.1.0
+    - **`s_ink_button` splash animation enhancement:**
+        - Updated splash rendering to a radial-gradient style so the splash is no longer a flat filled circle.
+        - Added a soft fade in the splash interior (center) for a cleaner ink effect.
+        - Added a smooth fade on the outer splash edge (border) for more natural ripple falloff.
+
 ## [3.0.0]
 - `s_packages` dependency upgraded to ^3.0.0
 
