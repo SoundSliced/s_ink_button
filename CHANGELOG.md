@@ -1,3 +1,10 @@
+## [3.1.1]
+- `s_packages` dependency upgraded to ^3.4.0
+    - **`s_ink_button` hover feedback improvement:**
+        - Active `SInkButton` widgets now show the click cursor on web/desktop hover, giving clearer visual feedback that the widget is interactive.
+        - Disabled `SInkButton` widgets keep the basic cursor so non-interactive states remain visually distinct.
+
+
 
 ## [3.1.0]
 - `s_packages` dependency upgraded to ^3.1.0

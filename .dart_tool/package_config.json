@@ -9,9 +9,9 @@
     },
     {
       "name": "assorted_layout_widgets",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/assorted_layout_widgets-11.0.0",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/assorted_layout_widgets-12.0.0",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.9"
     },
     {
       "name": "async",
@@ -189,9 +189,9 @@
     },
     {
       "name": "flutter_svg",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/flutter_svg-2.2.3",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/flutter_svg-2.2.4",
       "packageUri": "lib/",
-      "languageVersion": "3.8"
+      "languageVersion": "3.9"
     },
     {
       "name": "flutter_test",
@@ -231,9 +231,9 @@
     },
     {
       "name": "hooks",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/hooks-1.0.1",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/hooks-1.0.2",
       "packageUri": "lib/",
-      "languageVersion": "3.9"
+      "languageVersion": "3.10"
     },
     {
       "name": "html",
@@ -309,7 +309,7 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/matcher-0.12.18",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/matcher-0.12.19",
       "packageUri": "lib/",
       "languageVersion": "3.7"
     },
@@ -339,9 +339,9 @@
     },
     {
       "name": "native_toolchain_c",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/native_toolchain_c-0.17.4",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/native_toolchain_c-0.17.5",
       "packageUri": "lib/",
-      "languageVersion": "3.9"
+      "languageVersion": "3.10"
     },
     {
       "name": "navigation_builder",
@@ -489,7 +489,7 @@
     },
     {
       "name": "s_packages",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/s_packages-3.1.0",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/s_packages-3.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -603,7 +603,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/test_api-0.7.9",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/test_api-0.7.10",
       "packageUri": "lib/",
       "languageVersion": "3.7"
     },
@@ -627,9 +627,9 @@
     },
     {
       "name": "vector_graphics",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/vector_graphics-1.1.19",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/vector_graphics-1.1.20",
       "packageUri": "lib/",
-      "languageVersion": "3.6"
+      "languageVersion": "3.9"
     },
     {
       "name": "vector_graphics_codec",
@@ -687,7 +687,7 @@
     },
     {
       "name": "webview_flutter_wkwebview",
-      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.23.8",
+      "rootUri": "file:///Users/christophechanteur/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.24.0",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
@@ -723,8 +723,8 @@
     }
   ],
   "generator": "pub",
-  "generatorVersion": "3.12.0-113.1.beta",
+  "generatorVersion": "3.12.0-113.2.beta",
   "flutterRoot": "file:///Users/christophechanteur/Development/flutter",
-  "flutterVersion": "3.42.0-0.2.pre",
+  "flutterVersion": "3.42.0-0.4.pre",
   "pubCache": "file:///Users/christophechanteur/.pub-cache"
 }
